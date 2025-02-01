@@ -10,7 +10,7 @@ export const contact: Partial<Page> = {
     {
       blockType: 'formBlock',
       enableIntro: true,
-      form: '{{CONTACT_FORM_ID}}',
+      form: 123, // Replace 123 with the appropriate number or Form object
       introContent: {
         root: {
           type: 'root',
