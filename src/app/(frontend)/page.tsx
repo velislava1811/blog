@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import BlogSection from '@/components/blog-section'
 
 const stats = [
   { label: 'Articles published', value: '500+' },
@@ -57,7 +57,7 @@ const blogPosts = [
   },
   // More posts...
 ]
-export default function Example() {
+export default function Home() {
   return (
     <div>
       <main className="isolate">
@@ -65,7 +65,7 @@ export default function Example() {
         <div className="relative isolate -z-10">
           <svg
             aria-hidden="true"
-            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
+            className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 dark:stroke-gray-800 dark:bg-gray-900 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
           >
             <defs>
               <pattern
@@ -79,7 +79,7 @@ export default function Example() {
                 <path d="M.5 200V.5H200" fill="none" />
               </pattern>
             </defs>
-            <svg x="50%" y={-1} className="overflow-visible fill-gray-50">
+            <svg x="50%" y={-1} className="overflow-visible fill-gray-50 dark:fill-gray-800">
               <path
                 d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
                 strokeWidth={0}
@@ -218,7 +218,7 @@ export default function Example() {
         {/* Image section */}
         <div className="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
           <Image
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
+            src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
             width={2832}
             height={1133}
             alt="Content writing workspace"
@@ -319,62 +319,7 @@ export default function Example() {
           </div>
         </div> */}
 
-        {/* Blog section */}
-        <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-            <h2 className="text-pretty text-4xl font-semibold tracking-tight  sm:text-5xl">
-              Featured articles
-            </h2>
-            <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-300">
-              A selection of my best work across various industries and topics.
-            </p>
-          </div>
-          <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <article
-                key={post.id}
-                className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
-              >
-                <Image
-                  width={400}
-                  height={600}
-                  alt="Logo"
-                  src={post.imageUrl}
-                  className="absolute inset-0 -z-10 size-full object-cover"
-                />
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-
-                <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
-                  <time dateTime={post.datetime} className="mr-8">
-                    {post.date}
-                  </time>
-                  <div className="-ml-4 flex items-center gap-x-4">
-                    <svg viewBox="0 0 2 2" className="-ml-0.5 size-0.5 flex-none fill-white/50">
-                      <circle r={1} cx={1} cy={1} />
-                    </svg>
-                    <div className="flex gap-x-2.5">
-                      <Image
-                        width={400}
-                        height={600}
-                        alt="Logo"
-                        src={post.author.imageUrl}
-                        className="size-6 flex-none rounded-full bg-white/10"
-                      />
-                      {post.author.name}
-                    </div>
-                  </div>
-                </div>
-                <h3 className="mt-3 text-lg/6 font-semibold text-white dark:text-gray-300">
-                  <Link href={post.href}>
-                    <span className="absolute inset-0" />
-                    {post.title}
-                  </Link>
-                </h3>
-              </article>
-            ))}
-          </div>
-        </div>
+        <BlogSection />
       </main>
     </div>
   )

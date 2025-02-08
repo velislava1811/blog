@@ -10,7 +10,6 @@ import { useAuth } from '@/hooks/useAuth'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/posts' },
-  { name: 'Services', href: '/services' },
   { name: 'About', href: '/about' },
 ]
 
