@@ -5,7 +5,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import type { Post } from '@/payload-types'
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const payload = await getPayload({ config: configPromise })
