@@ -1,6 +1,7 @@
 // storage-adapter-import-placeholder
+import { MediaWithPrefix } from './collections/MediaWithPrefix'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-
+import { s3Storage } from '@payloadcms/storage-s3'
 import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig, PayloadRequest } from 'payload'
@@ -69,6 +70,26 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
+    s3Storage({
+      collections: {
+        media: {
+          prefix: 'media',
+        },
+        [MediaWithPrefix.slug]: {
+          prefix: 'media-with-prefix',
+        },
+      },
+      bucket: process.env.S3_BUCKET || '',
+      config: {
+        endpoint: process.env.R2_URL_KEY || '',
+        forcePathStyle: true,
+        region: 'auto',
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+        },
+      },
+    }),
     // storage-adapter-placeholder
   ],
   secret: process.env.PAYLOAD_SECRET,
