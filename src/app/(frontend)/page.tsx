@@ -39,24 +39,6 @@ const values = [
   },
 ]
 
-const blogPosts = [
-  {
-    id: 1,
-    title: 'Vel expedita assumenda placeat aut nisi optio voluptates quas',
-    href: '/blog',
-    description:
-      'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80',
-    date: 'Mar 16, 2020',
-    datetime: '2020-03-16',
-    author: {
-      name: 'Velislav Mihaylova',
-      imageUrl: '/velislava.jpg',
-    },
-  },
-  // More posts...
-]
 export default function Home() {
   return (
     <div>
@@ -122,7 +104,7 @@ export default function Home() {
                   <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                     <div className="relative">
                       <Image
-                        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        src="https://images.unspla  sh.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
                         width={176}
                         height={264}
                         alt="Writing sample 1"
