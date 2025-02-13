@@ -22,18 +22,17 @@ export default async function BlogSection() {
     <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
       <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
         <h2 className="text-pretty text-4xl font-semibold tracking-tight  sm:text-5xl">
-          Featured articles
+          Latest articles
         </h2>
         <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-300">
-          A selection of my best work across various industries and topics.
+          Explore my latest articles and insights on a wide range of topics.
         </p>
       </div>
       <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {posts.docs.map((post: Post) => {
           const heroImage =
             post.heroImage && typeof post.heroImage === 'object' ? (post.heroImage as Media) : null
-          const imageUrl =
-            heroImage?.url || 'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e'
+          const imageUrl = heroImage?.url || '/fallback-post.jpg'
 
           return (
             <article

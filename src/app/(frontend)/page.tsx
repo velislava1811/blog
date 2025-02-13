@@ -39,6 +39,9 @@ const values = [
   },
 ]
 
+export const dynamic = 'force-static'
+export const revalidate = 6000 // 100 minute
+
 export default function Home() {
   return (
     <div>

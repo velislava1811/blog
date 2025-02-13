@@ -5,6 +5,7 @@ import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 import { formatAuthors } from '@/utilities/formatAuthors'
+import fallbackImage from '../../../public/fallback-post.jpg'
 
 export const PostHero: React.FC<{
   post: Post
@@ -29,7 +30,9 @@ export const PostHero: React.FC<{
 
                 return (
                   <React.Fragment key={index}>
-                    {titleToUse}
+                    <div className="inline-block bg-white/80 dark:bg-black/80 text-black dark:text-white px-2 py-1 rounded-full">
+                      {titleToUse}
+                    </div>
                     {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
                   </React.Fragment>
                 )
@@ -63,6 +66,9 @@ export const PostHero: React.FC<{
         </div>
       </div>
       <div className="min-h-[80vh] select-none">
+        {!heroImage && (
+          <Media src={fallbackImage} alt="Fallback post" fill imgClassName="-z-10 object-cover" />
+        )}
         {heroImage && typeof heroImage !== 'string' && (
           <Media fill priority imgClassName="-z-10 object-cover" resource={heroImage} />
         )}

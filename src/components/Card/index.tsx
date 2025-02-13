@@ -7,6 +7,8 @@ import React, { Fragment } from 'react'
 import type { Post } from '@/payload-types'
 
 import { Media } from '@/components/Media'
+import Image from 'next/image'
+import fallbackImage from '../../../public/fallback-post.jpg'
 
 export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
 
@@ -32,15 +34,25 @@ export const Card: React.FC<{
   return (
     <article
       className={cn(
-        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
+        'border border-border rounded-2xl overflow-hidden bg-card hover:cursor-pointer',
         className,
       )}
       ref={card.ref}
     >
-      {/* <div className="relative w-full ">
-        {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
-      </div> */}
+      <div className="aspect-[3/2] relative">
+        {!metaImage ? (
+          <Media
+            src={fallbackImage}
+            alt="Fallback post"
+            fill
+            imgClassName="w-full h-full object-cover"
+          />
+        ) : (
+          typeof metaImage !== 'string' && (
+            <Media resource={metaImage} fill imgClassName="w-full h-full object-cover" />
+          )
+        )}
+      </div>
       <div className="p-4">
         {showCategories && hasCategories && (
           <div className="uppercase text-sm mb-4">
