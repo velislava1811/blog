@@ -93,6 +93,7 @@ export default function Header() {
               <span className="sr-only">Content by Ava</span>
               <Logo />
             </Link>
+            <div className="flex items-center gap-2 text-2xl font-thin mb-2">Menu</div>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
