@@ -147,7 +147,7 @@ export default function About() {
               </div>
               <div className="relative mx-auto max-w-md space-y-6 px-6 py-12 sm:max-w-3xl sm:py-16 lg:col-span-6 lg:col-start-4 lg:max-w-none lg:p-0">
                 <h2 id="join-heading" className="text-3xl font-bold tracking-tight text-white">
-                  Velislav Mihaylov
+                  Velislava Mihaylova
                 </h2>
                 <p className="text-lg text-white">
                   I&apos;m always looking for new opportunities to help businesses grow. If you have
